@@ -1,7 +1,7 @@
 import fetch from "node-fetch"
 
 const GRAPH_ENDPOINT = "https://api.thegraph.com/subgraphs/name/convex-community/curve-factory-volume"
-const POOL_ADDR = "0xfd5db7463a3ab53fd211b4af195c5bccc1a03890"
+const POOL_ADDR = "0xAA5A67c256e27A5d80712c51971408db3370927D"
 const CURRENT_TIMESTAMP = Math.round(new Date().getTime() / 1000);
 const TIMESTAMP_24H_AGO = CURRENT_TIMESTAMP - (24 * 3600);
 
@@ -12,7 +12,7 @@ const POOL_QUERY = `
     orderBy: timestamp, 
     orderDirection: desc, 
     where: {
-      pool: "${POOL_ADDR}"
+      pool: "${POOL_ADDR.toLowerCase()}"
       timestamp_gt: ${TIMESTAMP_24H_AGO}
     }
   )
